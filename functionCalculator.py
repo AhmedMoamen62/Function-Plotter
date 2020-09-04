@@ -1,13 +1,107 @@
 def fucntionCalculator(ops):
     val = None
+    error = 'No error'
+    precedence = {'(':0,')':1,'^':2,'/':3,'*':4,'+':5,'-':6}
     if len(ops) == 0:
-        return val
+        error = 'Please enter an equation'
+        return val,error
     operands = []
     operators = []
-    for op in ops:
-        if op.isnumeric():
-            operands.append(op)
-    return val
+    for op,i in zip(ops,range(len(ops))):
+        if len(operators) != 0:
+            if isOperator(op):
+                if precedence[op] < precedence[operators[-1]]:
+                    operators.append(op)
+                    continue
+                operator = operators[-1]
+                if operator == '^':
+                    operation = operands[-2] ** operands[-1]
+                    operators.pop()
+                    operands.pop()
+                    operands.pop()
+                    operands.append(operation)
+                elif operator == '/':
+                    operation = operands[-2] / operands[-1]
+                    operators.pop()
+                    operands.pop()
+                    operands.pop()
+                    operands.append(operation)
+                elif operator == '*':
+                    operation = operands[-2] * operands[-1]
+                    operators.pop()
+                    operands.pop()
+                    operands.pop()
+                    operands.append(operation)
+                elif operator == '+':
+                    operation = operands[-2] + operands[-1]
+                    operators.pop()
+                    operands.pop()
+                    operands.pop()
+                    operands.append(operation)
+                elif operator == '-':
+                    operation = operands[-2] - operands[-1]
+                    operators.pop()
+                    operands.pop()
+                    operands.pop()
+                    operands.append(operation)
+                operators.append(op)
+
+            else:
+                operands.append(op)
+                if i != len(ops) - 1 and isOperator(ops[i + 1]) and precedence[ops[i + 1]] < precedence[operators[-1]]:
+                    continue
+                operator = operators[-1]
+                if operator == '^':
+                    operation = operands[-2] ** operands[-1]
+                    operators.pop()
+                    operands.pop()
+                    operands.pop()
+                    operands.append(operation)
+                elif operator == '/':
+                    operation = operands[-2] / operands[-1]
+                    operators.pop()
+                    operands.pop()
+                    operands.pop()
+                    operands.append(operation)
+                elif operator == '*':
+                    operation = operands[-2] * operands[-1]
+                    operators.pop()
+                    operands.pop()
+                    operands.pop()
+                    operands.append(operation)
+                elif operator == '+':
+                    operation = operands[-2] + operands[-1]
+                    operators.pop()
+                    operands.pop()
+                    operands.pop()
+                    operands.append(operation)
+                elif operator == '-':
+                    operation = operands[-2] - operands[-1]
+                    operators.pop()
+                    operands.pop()
+                    operands.pop()
+                    operands.append(operation)
+
+        else:
+            if isOperator(op):
+                operators.append(op)
+            else:
+                operands.append(op)
+
+    if len(operators) != 0 and len(operands) != 1:
+        error = 'Please check your equation, operands and operators are not matching'
+        return val,error
+    if len(operators) != 0:
+        error = 'Please check your operators, There is unused operators'
+        return val,error
+    if len(operands) != 1:
+        error = 'Please check your operands, There is unused operands'
+        return val,error
+
+    val = operands[0]
+    operands.clear()
+    operators.clear()
+    return val, error
 
 def isOperator(char):
     if char != '+' and char != '-' and char != '*' and char != '/' and char != '^' and char != '(' and char != ')':
@@ -49,27 +143,30 @@ def trimTerms(equation):
     i = 0
     while i < len(equation):
         ch = equation[i]
-        i += 1
         if isOperator(ch):
             ops.append(ch)
         elif ch.isnumeric or ch == '.':
             number = ch
-            for char in equation[i:]:
+            for char in equation[i + 1:]:
                 if char.isnumeric() or char == '.':
                     number += char
                     i += 1
                 else:
-                    ops.append(number)
                     break
+            ops.append(float(number))
+        i += 1
     return ops
 
 name = 'x'
-equation = '(5.5*' + name + ' - 4)^2 + 3*' + name + ' - 2'
+#equation = '(5.5*' + name + ' - 4)^2 + 3*' + name + ' - 2'
+equation = '2 * ' + name +  '^2 -3.5*' + name + '-6'
 print(equation)
 equation = removeSpaces(equation)
 print(equation)
 print(getVariableName(equation))
 print(checkVarName(equation,name))
-equation = raplaceVar(equation,name,'123.5')
+equation = raplaceVar(equation,name,'4')
 print(equation)
-print(trimTerms(equation))
+ops = trimTerms(equation)
+print(ops)
+print(fucntionCalculator(ops))
