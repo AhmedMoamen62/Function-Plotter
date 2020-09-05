@@ -2,7 +2,7 @@ def fucntionCalculator(ops):
     val = None
     error = None
     # low number high precedence
-    precedence = {'^':5,'/':4,'*':3,'+':2,'-':1}
+    precedence = {'(':6,'^':5,'/':4,'*':3,'+':2,'-':1}
     if len(ops) == 0:
         error = 'Please enter an equation'
         return val,error
@@ -13,18 +13,18 @@ def fucntionCalculator(ops):
         if not isOperator(op) and op != '(' and op != ')':
             # add to the operands list
             operands.append(op)
-        # check if the element is an operator
-        elif isOperator(op):
+        # check if the element is an operator or left parentheses
+        elif isOperator(op) or op == '(':
             # check if there's no operators in the list or the precedence of the op is higher than the last one in the list
             if len(operators) == 0 or precedence[op] > precedence[operators[-1]]:
                 # add to operators list
                 operators.append(op)
             else:
                 # evaluate all in the list until the operators list became empty
-                while len(operators) > 0 and precedence[op] <= precedence[operators[-1]]:
+                while len(operators) > 0 and precedence[op] <= precedence[operators[-1]] and isOperator(operators[-1]):
                     # check if there's enough operands
                     if len(operands) < 2:
-                        error = 'Please check your operands'
+                        error = 'Please check your operators'
                         return val, error
                     else:
                         # evaluate the operation
@@ -36,14 +36,14 @@ def fucntionCalculator(ops):
                         operands.append(operation)
                 operators.append(op)
 
-        elif op == '(':
-            operators.append(op)
+        # elif op == '(':
+        #     operators.append(op)
         elif op == ')':
             # check if the operators list isn't empty and the last element is operator not parentheses
             while len(operators) > 0 and isOperator(operators[-1]):
                 # check if there's enough operands
                 if len(operands) < 2:
-                    error = 'Please check your operands'
+                    error = 'Please check your operators'
                     return val, error
                 else:
                     # evaluate the operation
@@ -61,7 +61,7 @@ def fucntionCalculator(ops):
     while len(operators) > 0 and isOperator(operators[-1]):
         # check if there's enough operands
         if len(operands) < 2:
-            error = 'Please check your operands'
+            error = 'Please check your operators'
             return val, error
         else:
             # evaluate the operation
@@ -160,8 +160,8 @@ def trimTerms(equation):
     return ops
 
 name = 'x'
-#equation = '(5.5*' + name + ' - 4)^2 + 3*' + name + ' - 2'
-equation = '(2 * ' + name +  '^2 -3.5*' + name + '-6'
+equation = '(5.5*' + name + ' - 4*(5 + 6))^2 + 3*' + name + ' - 2'
+#equation = '(2 * ' + name +  '^2) -3.5*' + name + '-6'
 print(equation)
 equation = removeSpaces(equation)
 print(equation)
