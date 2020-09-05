@@ -1,63 +1,76 @@
 def fucntionCalculator(ops):
     val = None
     error = None
-    precedence = {'(':0,')':7,'^':1,'/':2,'*':3,'+':4,'-':5}
+    # low number high precedence
+    precedence = {'^':5,'/':4,'*':3,'+':2,'-':1}
     if len(ops) == 0:
         error = 'Please enter an equation'
         return val,error
     operands = []
     operators = []
-    for op,i in zip(ops,range(len(ops))):
-        if len(operators) != 0:
-            if isOperator(op):
-                if len(operators) > len(operands) and operators[-1] != '(' and op != '(':
-                    error = 'Please check your operators'
-                    return val,error
-                if precedence[op] < precedence[operators[-1]]:
-                    operators.append(op)
-                    continue
-                if op == ')':
-                    if operators[-1] == '(':
-                        operators.pop()
-                    else:
-                        error = "Please check your parentheses"
-                        return val,error
-                operator = operators[-1]
-                if operator != '(':
-                    operation = evaluate(operator,operands[-2],operands[-1])
-                    operators.pop()
-                    operands.pop()
-                    operands.pop()
-                    operands.append(operation)
-                if op != ')':
-                    operators.append(op)
-
-            else:
-                operands.append(op)
-                if i != len(ops) - 1 and isOperator(ops[i + 1]) and precedence[ops[i + 1]] < precedence[operators[-1]]:
-                    continue
-                if op == ')':
-                    if operators[-1] == '(':
-                        operators.pop()
-                    else:
-                        error = "Please check your parentheses"
-                        return val,error
-                operator = operators[-1]
-                if operator != '(':
-                    operation = evaluate(operator,operands[-2],operands[-1])
-                    operators.pop()
-                    operands.pop()
-                    operands.pop()
-                    operands.append(operation)
-
-        else:
-            if isOperator(op):
-                if op == ')':
-                    error = "Please check your parentheses"
-                    return val, error
+    for op in ops:
+        # check if the element is a number
+        if not isOperator(op) and op != '(' and op != ')':
+            # add to the operands list
+            operands.append(op)
+        # check if the element is an operator
+        elif isOperator(op):
+            # check if there's no operators in the list or the precedence of the op is higher than the last one in the list
+            if len(operators) == 0 or precedence[op] > precedence[operators[-1]]:
+                # add to operators list
                 operators.append(op)
             else:
-                operands.append(op)
+                # evaluate all in the list until the operators list became empty
+                while len(operators) > 0 and precedence[op] <= precedence[operators[-1]]:
+                    # check if there's enough operands
+                    if len(operands) < 2:
+                        error = 'Please check your operands'
+                        return val, error
+                    else:
+                        # evaluate the operation
+                        operation = evaluate(operators[-1],operands[-2],operands[-1])
+                        # remove the last 2 operands and last operator then add the value of the operation
+                        operands.pop()
+                        operands.pop()
+                        operators.pop()
+                        operands.append(operation)
+                operators.append(op)
+
+        elif op == '(':
+            operators.append(op)
+        elif op == ')':
+            # check if the operators list isn't empty and the last element is operator not parentheses
+            while len(operators) > 0 and isOperator(operators[-1]):
+                # check if there's enough operands
+                if len(operands) < 2:
+                    error = 'Please check your operands'
+                    return val, error
+                else:
+                    # evaluate the operation
+                    operation = evaluate(operators[-1], operands[-2], operands[-1])
+                    # remove the last 2 operands and last operator then add the value of the operation
+                    operands.pop()
+                    operands.pop()
+                    operators.pop()
+                    operands.append(operation)
+            if len(operators) > 0 and operators[-1] == '(':
+                operators.pop()
+            else:
+                error = 'Please check your parentheses'
+                return val, error
+    while len(operators) > 0 and isOperator(operators[-1]):
+        # check if there's enough operands
+        if len(operands) < 2:
+            error = 'Please check your operands'
+            return val, error
+        else:
+            # evaluate the operation
+            operation = evaluate(operators[-1], operands[-2], operands[-1])
+            # remove the last 2 operands and last operator then add the value of the operation
+            operands.pop()
+            operands.pop()
+            operators.pop()
+            operands.append(operation)
 
     if len(operators) != 0 and len(operands) != 1:
         error = 'Please check your equation, operands and operators are not matching'
@@ -74,7 +87,6 @@ def fucntionCalculator(ops):
 
     val = operands[0]
     operands.clear()
-    operators.clear()
     return val, error
 
 def evaluate(operator,op1,op2):
@@ -94,7 +106,7 @@ def evaluate(operator,op1,op2):
 
 
 def isOperator(char):
-    if char != '+' and char != '-' and char != '*' and char != '/' and char != '^' and char != '(' and char != ')':
+    if char != '+' and char != '-' and char != '*' and char != '/' and char != '^':
         return False
     else:
         return True
@@ -102,11 +114,11 @@ def isOperator(char):
 def getVariableName(equation):
     for op,i in zip(equation,range(1,len(equation))):
         varName = ''
-        if not op.isnumeric() and not isOperator(op) and op != '.':
+        if not op.isnumeric() and not isOperator(op) and op != '.' and op != '(' and op != ')':
             varName += op
             for ch in equation[i:]:
                 i += 1
-                if not ch.isnumeric() and not isOperator(ch) and op != '.':
+                if not ch.isnumeric() and not isOperator(ch) and ch != '.' and ch != '(' and ch != ')':
                     varName += ch
                 else:
                     return varName, i
@@ -133,7 +145,7 @@ def trimTerms(equation):
     i = 0
     while i < len(equation):
         ch = equation[i]
-        if isOperator(ch):
+        if isOperator(ch) or ch == '(' or ch == ')':
             ops.append(ch)
         elif ch.isnumeric or ch == '.':
             number = ch
@@ -148,8 +160,8 @@ def trimTerms(equation):
     return ops
 
 name = 'x'
-equation = '(5.5*' + name + ' - 4*3)^2 + 3*' + name + ' - 2'
-#equation = '2 * ' + name +  '^2 -3.5*' + name + '-6'
+#equation = '(5.5*' + name + ' - 4)^2 + 3*' + name + ' - 2'
+equation = '(2 * ' + name +  '^2 -3.5*' + name + '-6'
 print(equation)
 equation = removeSpaces(equation)
 print(equation)
