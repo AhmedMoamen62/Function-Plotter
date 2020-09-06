@@ -160,6 +160,7 @@ def trimTerms(equation):
     return ops
 
 name = 'x'
+#equation = '34'
 equation = '(5.5*' + name + ' - 4*(5 + 6))^2 + 3*' + name + ' - 2'
 #equation = '(2 * ' + name +  '^2) -3.5*' + name + '-6'
 print(equation)

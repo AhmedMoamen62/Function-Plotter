@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="edd59e19-8a90-45cc-84e1-814fdcb45f91" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/functionCalculator.py" beforeDir="false" afterPath="$PROJECT_DIR$/functionCalculator.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,8 +33,8 @@
     <property name="last_opened_file_path" value="$USER_HOME$/venv/bin/python3.6" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager">
-    <configuration name="functionCalculator" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.GUI_main">
+    <configuration name="GUI_DigitalClock" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Function-Plotter" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -45,7 +46,91 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/functionCalculator.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GUI_DigitalClock.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="GUI_Icons" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Function-Plotter" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GUI_Icons.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="GUI_Layout" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Function-Plotter" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GUI_Layout.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="GUI_bars" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Function-Plotter" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GUI_bars.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="GUI_main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Function-Plotter" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GUI_main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -56,7 +141,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.functionCalculator" />
+        <item itemvalue="Python.GUI_main" />
+        <item itemvalue="Python.GUI_Layout" />
+        <item itemvalue="Python.GUI_Icons" />
+        <item itemvalue="Python.GUI_DigitalClock" />
+        <item itemvalue="Python.GUI_bars" />
       </list>
     </recent_temporary>
   </component>
@@ -76,41 +165,55 @@
       <screen x="0" y="27" width="1366" height="741" />
     </state>
     <state x="516" y="208" width="424" height="491" key="FileChooserDialogImpl/0.27.1366.741@0.27.1366.741" timestamp="1599204554521" />
-    <state width="1343" height="172" key="GridCell.Tab.0.bottom" timestamp="1599308686838">
+    <state width="1343" height="128" key="GridCell.Tab.0.bottom" timestamp="1599419754895">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1343" height="172" key="GridCell.Tab.0.bottom/0.27.1366.741@0.27.1366.741" timestamp="1599308686838" />
-    <state width="1343" height="172" key="GridCell.Tab.0.center" timestamp="1599308686837">
+    <state width="1343" height="128" key="GridCell.Tab.0.bottom/0.27.1366.741@0.27.1366.741" timestamp="1599419754895" />
+    <state width="1343" height="128" key="GridCell.Tab.0.center" timestamp="1599419754894">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1343" height="172" key="GridCell.Tab.0.center/0.27.1366.741@0.27.1366.741" timestamp="1599308686837" />
-    <state width="1343" height="172" key="GridCell.Tab.0.left" timestamp="1599308686837">
+    <state width="1343" height="128" key="GridCell.Tab.0.center/0.27.1366.741@0.27.1366.741" timestamp="1599419754894" />
+    <state width="1343" height="128" key="GridCell.Tab.0.left" timestamp="1599419754893">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1343" height="172" key="GridCell.Tab.0.left/0.27.1366.741@0.27.1366.741" timestamp="1599308686837" />
-    <state width="1343" height="172" key="GridCell.Tab.0.right" timestamp="1599308686838">
+    <state width="1343" height="128" key="GridCell.Tab.0.left/0.27.1366.741@0.27.1366.741" timestamp="1599419754893" />
+    <state width="1343" height="128" key="GridCell.Tab.0.right" timestamp="1599419754894">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1343" height="172" key="GridCell.Tab.0.right/0.27.1366.741@0.27.1366.741" timestamp="1599308686838" />
-    <state width="1343" height="215" key="GridCell.Tab.1.bottom" timestamp="1599308368428">
+    <state width="1343" height="128" key="GridCell.Tab.0.right/0.27.1366.741@0.27.1366.741" timestamp="1599419754894" />
+    <state width="1343" height="215" key="GridCell.Tab.1.bottom" timestamp="1599325466667">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1343" height="215" key="GridCell.Tab.1.bottom/0.27.1366.741@0.27.1366.741" timestamp="1599308368428" />
-    <state width="1343" height="215" key="GridCell.Tab.1.center" timestamp="1599308368427">
+    <state width="1343" height="215" key="GridCell.Tab.1.bottom/0.27.1366.741@0.27.1366.741" timestamp="1599325466667" />
+    <state width="1343" height="215" key="GridCell.Tab.1.center" timestamp="1599325466666">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1343" height="215" key="GridCell.Tab.1.center/0.27.1366.741@0.27.1366.741" timestamp="1599308368427" />
-    <state width="1343" height="215" key="GridCell.Tab.1.left" timestamp="1599308368427">
+    <state width="1343" height="215" key="GridCell.Tab.1.center/0.27.1366.741@0.27.1366.741" timestamp="1599325466666" />
+    <state width="1343" height="215" key="GridCell.Tab.1.left" timestamp="1599325466666">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1343" height="215" key="GridCell.Tab.1.left/0.27.1366.741@0.27.1366.741" timestamp="1599308368427" />
-    <state width="1343" height="215" key="GridCell.Tab.1.right" timestamp="1599308368428">
+    <state width="1343" height="215" key="GridCell.Tab.1.left/0.27.1366.741@0.27.1366.741" timestamp="1599325466666" />
+    <state width="1343" height="215" key="GridCell.Tab.1.right" timestamp="1599325466667">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1343" height="215" key="GridCell.Tab.1.right/0.27.1366.741@0.27.1366.741" timestamp="1599308368428" />
+    <state width="1343" height="215" key="GridCell.Tab.1.right/0.27.1366.741@0.27.1366.741" timestamp="1599325466667" />
     <state x="172" y="31" width="1022" height="737" key="SettingsEditor" timestamp="1599204782131">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
     <state x="172" y="31" width="1022" height="737" key="SettingsEditor/0.27.1366.741@0.27.1366.741" timestamp="1599204782131" />
+    <state x="446" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1599377921422">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="446" y="89" width="672" height="678" key="search.everywhere.popup/0.27.1366.741@0.27.1366.741" timestamp="1599377921422" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/GUI_bars.py</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
