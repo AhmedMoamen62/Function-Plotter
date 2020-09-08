@@ -1,3 +1,7 @@
+# algorithm to evaluate a list of operands and operators in order
+# it work basicly with 2 stacks one for operands and another for operators
+# iterate of the input list ans check the high precedence
+# check some errors in the operands, operators or parentheses
 def functionCalculator(ops):
     val = None
     error = None
@@ -36,8 +40,6 @@ def functionCalculator(ops):
                         operands.append(operation)
                 operators.append(op)
 
-        # elif op == '(':
-        #     operators.append(op)
         elif op == ')':
             # check if the operators list isn't empty and the last element is operator not parentheses
             while len(operators) > 0 and isOperator(operators[-1]):
@@ -72,11 +74,11 @@ def functionCalculator(ops):
             operators.pop()
             operands.append(operation)
 
+    if len(operators) > 1 and operators[-1] == '(':
+        error = 'Please check your parentheses'
+        return val,error
     if len(operators) != 0 and len(operands) != 1:
         error = 'Please check your equation, operands and operators are not matching'
-        return val,error
-    if len(operators) == 1 and operators[0] == '(':
-        error = 'Please check your parentheses'
         return val,error
     if len(operators) != 0:
         error = 'Please check your operators'
@@ -89,6 +91,7 @@ def functionCalculator(ops):
     operands.clear()
     return val, error
 
+# arithmetic operations and it could be expanded for more operations
 def evaluate(operator,op1,op2):
     operation = None
     if operator == '^':
@@ -104,13 +107,14 @@ def evaluate(operator,op1,op2):
 
     return operation
 
-
+# check if the char is an operator or not
 def isOperator(char):
     if char != '+' and char != '-' and char != '*' and char != '/' and char != '^':
         return False
     else:
         return True
 
+# algorithm to extract the first variable name in the equation
 def getVariableName(equation):
     i = 1
     varName = ''
@@ -129,6 +133,7 @@ def getVariableName(equation):
     else:
         return varName,i
 
+# check if the equation has multiple names or no operators before the variable
 def checkVarName(equation,varName):
     index = 0
     error = None
@@ -146,12 +151,15 @@ def checkVarName(equation,varName):
             error = 'There is multiple variable names'
             return False, error
 
+# remove spaces from the equation to be independent of it
 def removeSpaces(equation):
     return equation.replace(' ','')
 
+# replace variable name with a specific number
 def replaceVar(equation,varName,number):
     return equation.replace(varName,number)
 
+# crop the operands and operators of the equation in order
 def trimTerms(equation):
     ops = []
     i = 0
@@ -172,7 +180,7 @@ def trimTerms(equation):
     return ops
 
 # name = 'x'
-# equation = 'x + 5*x'
+# equation = 'x + 5*(x)'
 # #equation = '(5.5*' + name + ' - 4*(5 + 6))^2 + 3*(' + name + ') - 2'
 # #equation = '(2 * ' + name +  '^2) -3.5*' + name + '-6'
 # print(equation)
