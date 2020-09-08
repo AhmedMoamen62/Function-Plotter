@@ -161,18 +161,24 @@ def removeSpaces(equation):
     return equation.replace(' ','')
 
 # replace variable name with a specific number
-def replaceVar(equation,varName,number):
-    return equation.replace(varName,number)
+def replaceVar(ops,varName,number):
+    replaced_ops = []
+    for op in ops:
+        if op == varName:
+            replaced_ops.append(float(number))
+        else:
+            replaced_ops.append(op)
+    return replaced_ops
 
 # crop the operands and operators of the equation in order
-def trimTerms(equation):
+def trimTerms(equation,varName):
     ops = []
     i = 0
     while i < len(equation):
         ch = equation[i]
         if isOperator(ch) or ch == '(' or ch == ')':
             ops.append(ch)
-        elif ch.isnumeric or ch == '.':
+        elif ch.isnumeric() or ch == '.':
             number = ch
             for char in equation[i + 1:]:
                 if char.isnumeric() or char == '.':
@@ -181,24 +187,26 @@ def trimTerms(equation):
                 else:
                     break
             ops.append(float(number))
+        else:
+            ops.append(varName)
+            i += len(varName) - 1
         i += 1
     return ops
 
 # test cases for the logic
 
-name = 'x'
-#equation = '10*x'
-#equation = '(5.5*' + name + ' - 4*(5 + 6))^2 + 3*(' + name + ') - 2*x'
-equation = '((2 * ' + name +  '^2) -3.5*' + name + '-6'
-print(equation)
-equation = removeSpaces(equation)
-print(equation)
-varName,_ = getVariableName(equation)
-print(varName)
-print(checkVarName(equation,varName))
-equation = replaceVar(equation,varName,'4')
-print(equation)
-ops = trimTerms(equation)
-print(ops)
-print(functionCalculator(ops))
-
+# name = 'x'
+# equation = '10*x'
+# #equation = '(5.5*' + name + ' - 4*(5 + 6))^2 + 3*(' + name + ') - 2*x'
+# #equation = '(2 * ' + name +  '^2) -3.5*' + name + '-6'
+# print(equation)
+# equation = removeSpaces(equation)
+# print(equation)
+# varName,_ = getVariableName(equation)
+# print(varName)
+# print(checkVarName(equation,varName))
+# ops = trimTerms(equation,varName)
+# print(ops)
+# ops = replaceVar(ops,varName,'-4')
+# print(ops)
+# print(functionCalculator(ops))

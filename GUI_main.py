@@ -98,20 +98,17 @@ class Window(QWidget):
             self.aboutBox("Wrong range", "Your maximum value should be greater than minimum")
             return
 
-        # process the equation by trying to solve it with min value and check if there is error with operatos, operands or parentheses
-        if varName == '':
-            ops = trimTerms(equation)
-        else:
-            testEquation = replaceVar(equation, varName, str(maxValue))
-            ops = trimTerms(testEquation)
-        testVal,error = functionCalculator(ops)
+        # process the equation by trying to solve it with max value and check if there is error with operatos, operands or parentheses
+        ops = trimTerms(equation,varName)
+        temp_ops = replaceVar(ops,varName,str(maxValue))
+        testVal,error = functionCalculator(temp_ops)
 
         if error != None:
             self.aboutBox("Evaluation error", error)
             return
 
         # function to evaluate f(x) array and return f(x) and x lists to be plotted
-        fx,x = self.evaluateFunction(equation,maxValue,minValue,varName)
+        fx,x = self.evaluateFunction(ops,maxValue,minValue,varName)
 
         # plot the graph
         self.plotGraph(fx,x,varName)
@@ -151,18 +148,14 @@ class Window(QWidget):
         QMessageBox.about(self,title,error)
 
 
-    def evaluateFunction(self,equation,maxVal,minVal,varName):
+    def evaluateFunction(self,ops,maxVal,minVal,varName):
         # make array with start = minVal, end, maxVal and step for 0.25 for some accuracy
         x = np.arange(minVal,maxVal,0.25)
         fx = []
         # loop over each number(i) and evaluate f(i) then add it to f(x) list
         for number in x:
-            if varName == '':
-                ops = trimTerms(equation)
-            else:
-                tempEquation = replaceVar(equation, varName, str(number))
-                ops = trimTerms(tempEquation)
-            val , _ = functionCalculator(ops)
+            temp_ops = replaceVar(ops,varName,number)
+            val , _ = functionCalculator(temp_ops)
             fx.append(val)
 
         return fx,x
