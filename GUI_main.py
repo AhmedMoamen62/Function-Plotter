@@ -39,6 +39,7 @@ class Window(QWidget):
         # set minimum width and height for the window
         self.setMinimumHeight(200)
         self.setMinimumWidth(400)
+        self.setMaximumHeight(200)
         self.setMaximumWidth(400)
 
         # set icon for the application at run time and center the application window with the primary screen
@@ -98,8 +99,11 @@ class Window(QWidget):
             return
 
         # process the equation by trying to solve it with min value and check if there is error with operatos, operands or parentheses
-        testEquation = replaceVar(equation, varName,str(maxValue))
-        ops = trimTerms(testEquation)
+        if varName == '':
+            ops = trimTerms(equation)
+        else:
+            testEquation = replaceVar(equation, varName, str(maxValue))
+            ops = trimTerms(testEquation)
         testVal,error = functionCalculator(ops)
 
         if error != None:
@@ -108,26 +112,39 @@ class Window(QWidget):
 
         # function to evaluate f(x) array and return f(x) and x lists to be plotted
         fx,x = self.evaluateFunction(equation,maxValue,minValue,varName)
-        self.plotGraph(fx,x)
 
-    def plotGraph(self,fx,x):
+        # plot the graph
+        self.plotGraph(fx,x,varName)
+
+    def plotGraph(self,fx,x,varName):
+        # remove the old figure if user request another equation
         if self.firstTime:
             self.fig.clear()
             self.vbox.removeWidget(self.toolbar)
             self.vbox.removeWidget(self.canvas)
+
+        # set first time to be True, to remove the old figures
         self.firstTime = True
+
+        # set the figure and toolbar and add it to the window
         self.fig = Figure(figsize=(7, 5), dpi=65, facecolor=(1, 1, 1), edgecolor=(0, 0, 0))
         self.canvas = FigureCanvas(self.fig)
         self.toolbar = NavigationToolbar(self.canvas, self)
         self.vbox.addWidget(self.toolbar)
         self.vbox.addWidget(self.canvas)
+
+        # set new geometry to the window to fit the graph
         self.resize(400,500)
         self.setMinimumHeight(500)
+        self.setMaximumHeight(500)
 
+        # plot the graph and set the labels
         self.ax = self.fig.add_subplot(111)
         self.ax.plot(x,fx)
-        self.ax.set_xlabel('x')
-        self.ax.set_ylabel('f(x)')
+        if varName == '':
+            varName = 'x'
+        self.ax.set_xlabel(varName)
+        self.ax.set_ylabel('f(' + varName + ')')
 
     # QMessageBox which shows any error for the user
     def aboutBox(self,title,error):
@@ -140,12 +157,14 @@ class Window(QWidget):
         fx = []
         # loop over each number(i) and evaluate f(i) then add it to f(x) list
         for number in x:
-            tempEquation = replaceVar(equation,varName,str(number))
-            ops = trimTerms(tempEquation)
+            if varName == '':
+                ops = trimTerms(equation)
+            else:
+                tempEquation = replaceVar(equation, varName, str(number))
+                ops = trimTerms(tempEquation)
             val , _ = functionCalculator(ops)
             fx.append(val)
 
-        print(fx)
         return fx,x
 
     # to center the application window at the beginning

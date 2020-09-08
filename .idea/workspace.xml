@@ -34,7 +34,7 @@
     <property name="last_opened_file_path" value="$USER_HOME$/venv/bin/python3.6" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.GUI_main">
+  <component name="RunManager" selected="Python.functionCalculator">
     <configuration name="GUI_main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Function-Plotter" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -83,8 +83,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.GUI_main" />
         <item itemvalue="Python.functionCalculator" />
+        <item itemvalue="Python.GUI_main" />
       </list>
     </recent_temporary>
   </component>
@@ -108,38 +108,38 @@
       <screen x="0" y="27" width="1366" height="741" />
     </state>
     <state x="516" y="208" width="424" height="491" key="FileChooserDialogImpl/0.27.1366.741@0.27.1366.741" timestamp="1599204554521" />
-    <state width="1343" height="128" key="GridCell.Tab.0.bottom" timestamp="1599585683792">
+    <state width="1343" height="125" key="GridCell.Tab.0.bottom" timestamp="1599591707904">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1343" height="128" key="GridCell.Tab.0.bottom/0.27.1366.741@0.27.1366.741" timestamp="1599585683792" />
-    <state width="1343" height="128" key="GridCell.Tab.0.center" timestamp="1599585683791">
+    <state width="1343" height="125" key="GridCell.Tab.0.bottom/0.27.1366.741@0.27.1366.741" timestamp="1599591707904" />
+    <state width="1343" height="125" key="GridCell.Tab.0.center" timestamp="1599591707903">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1343" height="128" key="GridCell.Tab.0.center/0.27.1366.741@0.27.1366.741" timestamp="1599585683791" />
-    <state width="1343" height="128" key="GridCell.Tab.0.left" timestamp="1599585683791">
+    <state width="1343" height="125" key="GridCell.Tab.0.center/0.27.1366.741@0.27.1366.741" timestamp="1599591707903" />
+    <state width="1343" height="125" key="GridCell.Tab.0.left" timestamp="1599591707903">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1343" height="128" key="GridCell.Tab.0.left/0.27.1366.741@0.27.1366.741" timestamp="1599585683791" />
-    <state width="1343" height="128" key="GridCell.Tab.0.right" timestamp="1599585683792">
+    <state width="1343" height="125" key="GridCell.Tab.0.left/0.27.1366.741@0.27.1366.741" timestamp="1599591707903" />
+    <state width="1343" height="125" key="GridCell.Tab.0.right" timestamp="1599591707904">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1343" height="128" key="GridCell.Tab.0.right/0.27.1366.741@0.27.1366.741" timestamp="1599585683792" />
-    <state width="1343" height="215" key="GridCell.Tab.1.bottom" timestamp="1599494353697">
+    <state width="1343" height="125" key="GridCell.Tab.0.right/0.27.1366.741@0.27.1366.741" timestamp="1599591707904" />
+    <state width="1343" height="125" key="GridCell.Tab.1.bottom" timestamp="1599591707905">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1343" height="215" key="GridCell.Tab.1.bottom/0.27.1366.741@0.27.1366.741" timestamp="1599494353697" />
-    <state width="1343" height="215" key="GridCell.Tab.1.center" timestamp="1599494353697">
+    <state width="1343" height="125" key="GridCell.Tab.1.bottom/0.27.1366.741@0.27.1366.741" timestamp="1599591707905" />
+    <state width="1343" height="125" key="GridCell.Tab.1.center" timestamp="1599591707905">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1343" height="215" key="GridCell.Tab.1.center/0.27.1366.741@0.27.1366.741" timestamp="1599494353697" />
-    <state width="1343" height="215" key="GridCell.Tab.1.left" timestamp="1599494353696">
+    <state width="1343" height="125" key="GridCell.Tab.1.center/0.27.1366.741@0.27.1366.741" timestamp="1599591707905" />
+    <state width="1343" height="125" key="GridCell.Tab.1.left" timestamp="1599591707904">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1343" height="215" key="GridCell.Tab.1.left/0.27.1366.741@0.27.1366.741" timestamp="1599494353696" />
-    <state width="1343" height="215" key="GridCell.Tab.1.right" timestamp="1599494353697">
+    <state width="1343" height="125" key="GridCell.Tab.1.left/0.27.1366.741@0.27.1366.741" timestamp="1599591707904" />
+    <state width="1343" height="125" key="GridCell.Tab.1.right" timestamp="1599591707905">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1343" height="215" key="GridCell.Tab.1.right/0.27.1366.741@0.27.1366.741" timestamp="1599494353697" />
+    <state width="1343" height="125" key="GridCell.Tab.1.right/0.27.1366.741@0.27.1366.741" timestamp="1599591707905" />
     <state x="172" y="31" width="1022" height="737" key="SettingsEditor" timestamp="1599204782131">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
@@ -155,7 +155,7 @@
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/functionCalculator.py</url>
           <line>14</line>
-          <option name="timeStamp" value="1" />
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

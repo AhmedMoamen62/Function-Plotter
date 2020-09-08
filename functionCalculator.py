@@ -74,7 +74,7 @@ def functionCalculator(ops):
             operators.pop()
             operands.append(operation)
 
-    if len(operators) > 1 and operators[-1] == '(':
+    if len(operators) != 0 and operators[-1] == '(':
         error = 'Please check your parentheses'
         return val,error
     if len(operators) != 0 and len(operands) != 1:
@@ -119,6 +119,11 @@ def getVariableName(equation):
     i = 1
     varName = ''
     for op in equation:
+        if i > len(equation):
+            if varName == '':
+                return varName,-1
+            else:
+                return varName,i
         if not op.isnumeric() and not isOperator(op) and op != '.' and op != '(' and op != ')':
             varName += op
             for ch in equation[i:]:
@@ -140,8 +145,6 @@ def checkVarName(equation,varName):
     for i in range(len(equation)):
         name,ind = getVariableName(equation[index:])
         index += ind - 1
-        y = equation[index - len(name) - 1]
-        bo = isOperator(equation[index - len(name) - 1])
         if ind != -1 and len(name) != ind - 1 and not isOperator(equation[index - len(name) - 1]) and equation[index - len(name) - 1] != '(':
             error = 'Please put operands before variable name'
             return False,error
@@ -150,6 +153,8 @@ def checkVarName(equation,varName):
         if name != varName:
             error = 'There is multiple variable names'
             return False, error
+        if index >= len(equation):
+            return True,error
 
 # remove spaces from the equation to be independent of it
 def removeSpaces(equation):
@@ -179,19 +184,21 @@ def trimTerms(equation):
         i += 1
     return ops
 
-# name = 'x'
-# equation = 'x + 5*(x)'
-# #equation = '(5.5*' + name + ' - 4*(5 + 6))^2 + 3*(' + name + ') - 2'
-# #equation = '(2 * ' + name +  '^2) -3.5*' + name + '-6'
-# print(equation)
-# equation = removeSpaces(equation)
-# print(equation)
-# varName,_ = getVariableName(equation)
-# print(varName)
-# print(checkVarName(equation,varName))
-# equation = replaceVar(equation,name,'4')
-# print(equation)
-# ops = trimTerms(equation)
-# print(ops)
-# print(functionCalculator(ops))
+# test cases for the logic
+
+name = 'x'
+#equation = '10*x'
+#equation = '(5.5*' + name + ' - 4*(5 + 6))^2 + 3*(' + name + ') - 2*x'
+equation = '((2 * ' + name +  '^2) -3.5*' + name + '-6'
+print(equation)
+equation = removeSpaces(equation)
+print(equation)
+varName,_ = getVariableName(equation)
+print(varName)
+print(checkVarName(equation,varName))
+equation = replaceVar(equation,varName,'4')
+print(equation)
+ops = trimTerms(equation)
+print(ops)
+print(functionCalculator(ops))
 
