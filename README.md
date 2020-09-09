@@ -20,7 +20,7 @@ GUI application takes a string from user which has sequence of variable, operato
    ```
    pip3 install numpy
    ```
-- There's deployment for **Linux OS** in this [Link](https://drive.google.com/file/d/1vPqj8I54hJtxIGi0Mzike1AzZR9YuhXm/view?usp=sharing)
+- There's deployment for **Linux OS** in this [Link](https://drive.google.com/file/d/13dX_gteDYf-vUeSocbVrP-D-xBRB0O6O/view?usp=sharing)
 - You can use the application withought downloading the deployment, just follow next steps
   * clone the repository in your local disk
   * open terminal in same directory which the repository has been downloaded
