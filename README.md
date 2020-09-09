@@ -2,7 +2,7 @@
 A Cross platform desktop tool for plotting fucntions 
 
 # Description
-GUI application takes a string from user which has sequence of variable, operators and operands and takes minimum value and maximum value then pass it through some checking error, if it passes it, graph will be plotted in the same GUI
+GUI application takes a string from user which has sequence of variable, operators and operands and takes minimum value and maximum value then pass it through some checking errors, if it passes it, graph will be plotted in the same GUI
 
 # Dependencies 
 1. [PySide2](https://pypi.org/project/PySide2/)
@@ -25,6 +25,7 @@ GUI application takes a string from user which has sequence of variable, operato
   1. clone the repository in your local disk
   2. open terminal in same directory which the repository has been downloaded
   3. write in terminal this command
+
   ```
   python3 GUI_main.py
   ```
@@ -33,15 +34,18 @@ GUI application takes a string from user which has sequence of variable, operato
 - the application supports the basics operation multiplication `*`, division `/`, addition `+`, subtraction `-` and power `^`
 - the application supports any depth of parentheses
 - the application doesn't support checking math as complex numbers: ![imaginary number](https://latex.codecogs.com/gif.latex?%5Csqrt%7B-1%7D)
-- the application support any range input to plot the function if the function is defined in the given range
--  the application works with any **string** variable name 
+- the application supports any range input to plot the function if the function is defined in the given range
+- the application plots the function in the given range with step equal to 0.25 for some accuracy and speedup run time
+- the application works with any **string** variable name 
+- the application works according to operators high precedence in math 
 
 # Code pipeline
-The implementation of the application mainly is based on 2 algorithm or pipeline
+The implementation of the application mainly is based on 2 algorithms
 1. Graphical user interface code or design
 2. Logic code for processing the equation
 
-The implemntation is designed so it can be easly add other operations or complex equation 
+The implemntation is designed so it can be easly add other operations or complex equation
+
 After filling the inputs in GUI and click **Plot** button, some checking error will be applied in the following sequence
   1. check if the equation section is empty
   2. check if there is wrong variable name or multiple variable names
@@ -59,4 +63,5 @@ If the inputs of the GUI are passed all of this checkings, the application will 
   - check if the operators and operands aren't matching
 
 It was the final check, if the equation passed it, the graph will be plotted in the same GUI
-The graph is plotted using **Matplolib**, so we can get use of its toolbar in our application
+
+The graph is plotted using **Matplotlib**, so we can get use of its toolbar in our application
