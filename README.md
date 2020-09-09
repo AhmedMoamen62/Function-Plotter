@@ -22,10 +22,9 @@ GUI application takes a string from user which has sequence of variable, operato
    ```
 - There's deployment for **Linux OS** in this [Link](https://drive.google.com/file/d/1vPqj8I54hJtxIGi0Mzike1AzZR9YuhXm/view?usp=sharing)
 - You can use the application withought downloading the deployment, just follow next steps
-  1. clone the repository in your local disk
-  2. open terminal in same directory which the repository has been downloaded
-  3. write in terminal this command
-
+  * clone the repository in your local disk
+  * open terminal in same directory which the repository has been downloaded
+  * write in terminal this command
   ```
   python3 GUI_main.py
   ```
