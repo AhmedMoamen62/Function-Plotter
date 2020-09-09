@@ -37,6 +37,7 @@ GUI application takes a string from user which has sequence of variable, operato
 - the application plots the function in the given range with step equal to 0.25 for some accuracy and speedup run time
 - the application works with any **string** variable name 
 - the application works according to operators high precedence in math 
+- the application works independent of spaces in the equation
 
 # Code pipeline
 The implementation of the application mainly is based on 2 algorithms

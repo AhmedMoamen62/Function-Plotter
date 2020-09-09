@@ -212,7 +212,7 @@ class Window(QWidget):
         self.setLayout(gridLayout)
         self.groupBox.setLayout(gridLayout)
 
-# rin the application and show the window
+# run the application and show the window
 app = QApplication(sys.argv)
 window = Window()
 window.show()
