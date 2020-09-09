@@ -38,6 +38,7 @@ GUI application takes a string from user which has sequence of variable, operato
 - the application works with any **string** variable name 
 - the application works according to operators high precedence in math 
 - the application works independent of spaces in the equation
+- the application doesn't check strange operators or characters
 
 # Code pipeline
 The implementation of the application mainly is based on 2 algorithms

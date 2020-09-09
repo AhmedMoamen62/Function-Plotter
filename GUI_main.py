@@ -180,9 +180,9 @@ class Window(QWidget):
         # set equation text input
         self.equationInput = QLineEdit()
         self.equationInput.setMaximumHeight(30)
-        self.equationInput.setMaximumWidth(175)
+        #self.equationInput.setMaximumWidth(175)
         self.equationInput.setPlaceholderText("Enter your equation")
-        gridLayout.addWidget(self.equationInput, 0, 0)
+        gridLayout.addWidget(self.equationInput, 0, 0,1,0)
 
         # set max value text input
         self.maxInput = QLineEdit()

@@ -12,15 +12,30 @@ def functionCalculator(ops):
         return val,error
     operands = []
     operators = []
+
+    #set an iterator with the loop
+    i = 0
     for op in ops:
         # check if the element is a number
         if not isOperator(op) and op != '(' and op != ')':
             # add to the operands list
             operands.append(op)
+            # check if last operator is a sign for the current operand or not
+            if (len(operators) == len(operands) and i == 1) or (len(operators) >= 2 and len(operands) + countLeftParentheses(operators) == len(operators) and operators[-2] == '('):
+                if operators[-1] == '-':
+                    operands[-1] *= -1.0
+                    operators.pop()
+                elif operators[-1] == '+':
+                    operands[-1] *= 1.0
+                    operators.pop()
         # check if the element is an operator or left parentheses
         elif isOperator(op) or op == '(':
+            # check if there's 2 operators in sequence
+            if i > 0 and isOperator(op) and isOperator(ops[i - 1]):
+                error = 'Please check your operators'
+                return val, error
             # check if there's no operators in the list or the precedence of the op is higher than the last one in the list
-            if len(operators) == 0 or precedence[op] > precedence[operators[-1]]:
+            elif len(operators) == 0 or precedence[op] > precedence[operators[-1]]:
                 # add to operators list
                 operators.append(op)
             else:
@@ -60,6 +75,9 @@ def functionCalculator(ops):
             else:
                 error = 'Please check your parentheses'
                 return val, error
+        # increment the iterator
+        i += 1
+
     while len(operators) > 0 and isOperator(operators[-1]):
         # check if there's enough operands
         if len(operands) < 2:
@@ -106,6 +124,14 @@ def evaluate(operator,op1,op2):
         operation = op1 - op2
 
     return operation
+
+# function to count '(' parentheses in the operators list
+def countLeftParentheses(operators):
+    count = 0
+    for op in operators:
+        if op == '(':
+            count += 1
+    return count
 
 # check if the char is an operator or not
 def isOperator(char):
@@ -196,9 +222,9 @@ def trimTerms(equation,varName):
 # test cases for the logic
 
 # name = 'x'
-# equation = '10*x'
+# equation = '(3.7*x + 12)'
 # #equation = '(5.5*' + name + ' - 4*(5 + 6))^2 + 3*(' + name + ') - 2*x'
-# #equation = '(2 * ' + name +  '^2) -3.5*' + name + '-6'
+# #equation = '(-2 * ' + name +  '^2) -3.5*' + name + '-6'
 # print(equation)
 # equation = removeSpaces(equation)
 # print(equation)
@@ -207,6 +233,6 @@ def trimTerms(equation,varName):
 # print(checkVarName(equation,varName))
 # ops = trimTerms(equation,varName)
 # print(ops)
-# ops = replaceVar(ops,varName,'-4')
+# ops = replaceVar(ops,varName,'4')
 # print(ops)
 # print(functionCalculator(ops))
