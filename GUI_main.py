@@ -32,7 +32,7 @@ class Window(QWidget):
 
         # give orange background to the window
         palette = self.palette()
-        palette.setColor(QPalette.Window,QColor(255,150,0))
+        palette.setColor(QPalette.Window,QColor(150,150,150))
         self.setPalette(palette)
         self.setAutoFillBackground(True)
 

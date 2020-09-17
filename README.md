@@ -21,6 +21,12 @@ GUI application takes a string from user which has sequence of variable, operato
    pip3 install numpy
    ```
 - There's deployment for **Linux OS** in this [Link](https://drive.google.com/file/d/13dX_gteDYf-vUeSocbVrP-D-xBRB0O6O/view?usp=sharing)
+- We used [PyInstaller](https://www.pyinstaller.org/) for deploying which is compatible with numpy, matplotlib and PySide
+- You can deploy the project on your OS, but it's just working with 2.1.x or less version of matplotlib
+  ```
+  pyinstaller GUI_main.py --onefile --icon="icon.png"
+  ```
+
 - You can use the application withought downloading the deployment, just follow next steps
   * clone the repository in your local disk
   * open terminal in same directory which the repository has been downloaded
@@ -66,3 +72,6 @@ If the inputs of the GUI are passed all of this checkings, the application will 
 It was the final check, if the equation passed it, the graph will be plotted in the same GUI
 
 The graph is plotted using **Matplotlib**, so we can get use of its toolbar in our application
+
+# Example of GUI:
+![](GUI_design.png)
